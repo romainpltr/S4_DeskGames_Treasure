@@ -1,0 +1,63 @@
+
+
+ {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>
+     <link rel="stylesheet" href="{{ asset('assets/css/login/logs.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/game/enter-game.css') }}"/>
+ {% endblock %}
+{% block body %}
+ <header id="top-page">
+        <a id="nav-logo" href="index.php"></a>
+        <nav id="header-nav">
+            <ul>
+                <li class="header-nav-el" href="{{ path('app')}}">Accueil</li>
+                <li class="header-nav-el"><a href="#deskgame">Découvrir l'histoire</a></li>
+                <li class="header-nav-el"><a href="#newsletter">Acheter le jeu</a></li>
+            </ul>
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <a href="{{ path('profil')}}" id="nav-language-switch">{{app.user.username}}</a>
+            {% else %}
+            <a href="{{ path('app_login')}}" id="nav-language-switch">Connexion</a>
+            {% endif %}
+            <div id="nav-cross-closure"></div>
+        </nav>
+        <div id="nav-button-hamburger"></div>
+
+    </header>
+
+   <section class="log-page">
+        <div class="log-panel" id="enter-game-panel">
+            <div class="log-title-banner">
+                <h2>Jouer</h2>
+            </div>
+            <div class="flex-column">
+                <h3>Nouvelles parties : adversaire inconnu</h3>
+                <p>Vous allez vous battre contre {{ adversaires[0].username }}, préparez-vous Capitaine !</p>
+                <div class="flex-row">
+                    <img class="rounded-img-pirate" src="{{asset('assets/images/ProfilPicture/defaults/' ~ adversaires[0].profilPicture)}}">
+                <form method="post" action="{{ path('creer_partie') }}">  
+                    <input type="hidden" name="adversaire" value="{{adversaires[0].id }}">
+                    <a href="#.html"> <button class="rounded-button-red">COMMENCER LA PARTIE</button></a>
+                </form>
+                </div>
+                <div id="placement-nom">
+                    <p> {{ adversaires[0].username }} </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+        
+    <footer>
+        <div id="footer-width">
+            <div id="footer-txt">
+                <div class="footer-txt-link">Créé par l'agence <a href="https://mmi19d13.mmi-troyes.fr/DeskGames/">Deskgames</a></div>
+                <!-- <div id="footer-txt-links-divider"></div> -->
+            </div>
+            <div id="footer-sn">
+                <a href="https://twitter.com/desk_games?s=09"><img src="{{ asset('assets/images/icons/twitter.png')}}" alt="icône de Twitter" /></a>
+                <a href="https://www.instagram.com/desk_games/?hl=fr"><img src="{{ asset('assets/images/icons/instagram.png')}}" alt="icône d'Instagram" /></a>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

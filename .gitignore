@@ -1,0 +1,12 @@
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+/.env
+public/assets/video/animations_cartes_finale.mp4
+public/assets/images/video/Règles_Treasure_DeskGames (1).mp4
+###< symfony/framework-bundle ###

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Treasure{% endblock %}</title>
+    
+
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+        <script src="js/jquery-3.6.0.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="{{ asset('assets/js/recaptcha.js') }}"></script>
+        <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onGoogleReCaptchaApiLoad&render=explicit&hl={{ app.request.locale }}" async defer></script>        {% block javascripts %}{% endblock %}
+    </body>
+</html>

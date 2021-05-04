@@ -1,0 +1,73 @@
+
+
+ {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>
+     <link rel="stylesheet" href="{{ asset('assets/css/login/logs.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/game/enter-game.css') }}"/>
+ {% endblock %}
+{% block body %}
+ <header id="top-page">
+        <a id="nav-logo" href="index.php"></a>
+        <nav id="header-nav">
+            <ul>
+            
+                <li class="header-nav-el" id="connection-modal-btn">Jouer</li>
+                <li class="header-nav-el"><a href="#deskgame">Découvrir l'histoire</a></li>
+                <li class="header-nav-el"><a href="#newsletter">Acheter le jeu</a></li>
+            </ul>
+            <a href="index_en.html" id="nav-language-switch">en</a>
+            <div id="nav-cross-closure"></div>
+        </nav>
+        <div id="nav-button-hamburger"></div>
+
+    </header>
+
+    <section class="log-page">
+        <div class="log-panel" id="enter-game-panel">
+            <div class="log-title-banner">
+                <h2>Jouer</h2>
+            </div>
+            <div class="flex-column">
+                <h3>Inviter un ami - <a href="{{path("menu_game")}}">Retour</a></h3>
+                
+                <p>Pour combattre un de vos amis, appuyez sur sa photo de profil, moussaillon !</p>
+                <div class="flex-row">
+                    {% for key, value in amis %}
+                        {% for adversaire in adversaires %}
+                            {% if adversaire[0].id == value %}
+                              <form id="my_form{{value}}" method="post" action="{{ path('creer_partie') }}">
+                              
+                              <input type="hidden" name="adversaire" value="{{value}}">  
+                                <a href="javascript:{}" onclick="document.getElementById('my_form{{value}}').submit();"><img class="rounded-img-pirate" src="{{asset('assets/images/ProfilPicture/defaults/' ~ adversaire [0].profilPicture)}}"></a>
+                           </form>
+                            {% endif %}
+                        
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+                <div class="flex-row">
+                    {% for key, value in amis %}
+                        {% for adversaire in adversaires %}
+                            {% if adversaire[0].id == value %}
+                                <p>{{ adversaire[0].username }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+            <footer>
+        <div id="footer-width">
+            <div id="footer-txt">
+                <div class="footer-txt-link">Créé par l'agence <a href="https://mmi19d13.mmi-troyes.fr/DeskGames/">Deskgames</a></div>
+                <!-- <div id="footer-txt-links-divider"></div> -->
+            </div>
+            <div id="footer-sn">
+                <a href="https://twitter.com/desk_games?s=09"><img src="{{ asset('assets/images/icons/twitter.png')}}" alt="icône de Twitter" /></a>
+                <a href="https://www.instagram.com/desk_games/?hl=fr"><img src="{{ asset('assets/images/icons/instagram.png')}}" alt="icône d'Instagram" /></a>
+                
+            </div>
+        </div>
+    </footer>
+{% endblock %}

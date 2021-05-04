@@ -1,0 +1,244 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Playfair Display", "Times New Roman", serif;
+}
+body .profile-page {
+  padding-top: 172px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding-bottom: 100px;
+}
+@media (min-width: 905px) {
+  body .profile-page {
+    padding-top: 0;
+    margin-top: 20vh;
+  }
+}
+body .profile-page .profile-content {
+  margin-top: 100px;
+  width: 100%;
+}
+body .profile-page .profile-content .profile-title-banner {
+  width: 60vw;
+  margin: auto;
+  align-self: center;
+  height: 200px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: flex-start;
+  background: url("../../images/logo/parchment-banner.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+body .profile-page .profile-content .profile-title-banner h2 {
+  text-align: center;
+  margin: 0;
+  top: 12.5%;
+  color: #260202;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  text-shadow: rgba(0, 0, 0, 0.5) 5px 5px 5px;
+}
+@media (max-width: 904px) {
+  body .profile-page .profile-content .profile-title-banner h2 {
+    top: 15%;
+  }
+}
+@media (max-width: 770px) {
+  body .profile-page .profile-content .profile-title-banner h2 {
+    font-size: 1.6em;
+    top: 30%;
+  }
+}
+@media (max-width: 500px) {
+  body .profile-page .profile-content .profile-title-banner h2 {
+    font-size: 1.2em;
+    top: 35%;
+  }
+}
+@media (max-width: 350px) {
+  body .profile-page .profile-content .profile-title-banner h2 {
+    font-size: 1.2em;
+    top: 37.5%;
+  }
+}
+body .profile-page .profile-content #profile-panel-infos {
+  color: white;
+  box-shadow: black 1px 1px 10px;
+  background: #260202;
+  height: auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 300px auto;
+  padding: 30px 0;
+  margin: 100px auto 100px auto;
+  width: 70%;
+  border-radius: 100px 10px 10px 100px;
+  border: 3px #7E3D39 solid;
+}
+body .profile-page .profile-content #profile-panel-infos #profile-panel-avatar-container {
+  position: absolute;
+  left: -5%;
+  height: 100%;
+  grid-column: 1;
+  border-radius: 100%;
+  top: -15px;
+}
+body .profile-page .profile-content #profile-panel-infos #profile-panel-avatar-container img {
+  height: 100%;
+  border-radius: 100%;
+  border: #F6E867 15px solid;
+  box-shadow: black 1px 1px 10px;
+}
+body .profile-page .profile-content #profile-panel-infos #profile-panel-content {
+  grid-column: 2;
+  color: white;
+  font-size: 1.4em;
+  font-family: "Lora", "Times New Roman", serif;
+  text-transform: uppercase;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+body .profile-page .profile-content #profile-panel-infos #profile-panel-content #btn-access-game-container {
+  display: flex;
+  align-items: center;
+}
+body .profile-page .profile-content #profile-panel-infos #profile-panel-content #btn-access-game-container #profile-btn-access-game {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  bottom: -60px;
+  font-size: 1.2em;
+  background: #E7E7C5;
+  font-family: "Playfair Display", "Times New Roman", serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  color: #9F323D;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 50px;
+  word-break: keep-all;
+}
+body .profile-page .profile-content #profile-panel-infos #profile-panel-content #profile-content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: 30px;
+}
+body .profile-page .profile-content #profile-panel-infos #profile-panel-content #profile-content-grid .profile-info-piece {
+  text-align: center;
+}
+body .profile-page .profile-content #profile-panel-infos #profile-panel-content #profile-content-grid #info-pc-last-name {
+  grid-row: 1;
+  grid-column: 1;
+}
+body .profile-page .profile-content #profile-panel-infos #profile-panel-content #profile-content-grid #info-pc-age {
+  grid-row: 1;
+  grid-column: 2;
+}
+body .profile-page .profile-content #profile-panel-infos #profile-panel-content #profile-content-grid #info-pc-first-name {
+  grid-row: 2;
+  grid-column: 1;
+}
+body .profile-page .profile-content #profile-panel-infos #profile-panel-content #profile-content-grid #info-pc-pseudo {
+  grid-row: 3;
+  grid-column: 1;
+}
+body .profile-page .profile-content #profile-panel-infos #profile-panel-content #profile-content-grid #info-pc-elo {
+  grid-row: 3;
+  grid-column: 2;
+}
+body .profile-page .profile-content .profile-panel-stats {
+  background: #260202;
+  height: auto;
+  min-height: 200px;
+  border: 3px #7E3D39 solid;
+  box-shadow: black 1px 1px 10px;
+  width: 70%;
+  margin: auto;
+  margin-top: 100px;
+  border-radius: 10px;
+  padding: 40px 0;
+}
+body .profile-page .profile-content .profile-panel-stats h2 {
+  color: #F4B711;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+body .profile-page .profile-content .profile-panel-stats .profile-panel-stats-divider {
+  height: 1px;
+  width: 100%;
+  border-top: dashed 3px #DCC58B;
+  margin-bottom: 70px;
+}
+body .profile-page .profile-content .profile-panel-stats .profile-stats-all-columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 40px;
+}
+body .profile-page .profile-content .profile-panel-stats .profile-stats-all-columns .profile-stats-column {
+  width: 26%;
+}
+body .profile-page .profile-content .profile-panel-stats .profile-stats-all-columns .profile-stats-column .profile-stats-column-nb {
+  color: #DCC58B;
+  text-align: center;
+  font-size: 3em;
+  margin-bottom: 30px;
+}
+body .profile-page .profile-content .profile-panel-stats .profile-stats-all-columns .profile-stats-column .profile-stats-column-cat {
+  color: #260202;
+  background: #DCC58B;
+  font-family: "Playfair Display", "Times New Roman", serif;
+  text-align: center;
+  font-size: 1.5em;
+  padding: 10px 0px;
+  border-radius: 30px;
+}
+body .profile-page .profile-content .profile-panel-stats .profile-stats-victories {
+  background: #9F323D;
+  width: 21%;
+  color: white;
+  margin: auto;
+  border-radius: 30px;
+  padding: 30px 20px;
+  font-family: "Lora", "Times New Roman", serif;
+  font-size: 0.9em;
+}
+body .profile-page .profile-content .profile-panel-stats .profile-stats-victories .profile-stats-victories-line:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+/*# sourceMappingURL=profile.css.map */
+
+.ami input {
+    padding: 10px;
+    background: #dcc58b;
+    color: #260202;
+    border: none;
+    border-radius: 5px;
+    box-shadow: rgb(0 0 0 / 50%) 2px 2px 2px;
+    margin-right: 30px;
+    font-size: 1.2em;
+    font-family: 'Lora', Times, serif;
+}
+
+.ami button {
+  padding: 10px;
+    color: white;
+    border-radius: 25px;
+    border: none;
+    background: #9f323d;
+    box-shadow: rgb(0 0 0 / 50%) 2px 2px 2px;
+    font-size: 1.4em;
+    font-family: 'Lora', Times, serif;
+}

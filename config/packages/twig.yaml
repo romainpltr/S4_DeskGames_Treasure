@@ -1,0 +1,9 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    globals:
+        mercure_publish_url: '%env(MERCURE_PUBLISH_URL)%'
+        gg_recaptcha_site_key: '%env(GOOGLE_RECAPTCHA_SITE_KEY)%'
+    form_themes:
+        - 'form/custom_types.html.twig'
+
+       

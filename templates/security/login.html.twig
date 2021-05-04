@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Treasure - Connexion {% endblock %}
+ {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/login/logs.css') }}"/>
+ {% endblock %}
+{% block body %}
+    <header id="top-page">
+        <a id="nav-logo" href="{{ path('app')}}"></a>
+        <nav id="header-nav">
+            <ul>
+                <li class="header-nav-el" href="{{ path('app')}}">Accueil</li>
+                <li class="header-nav-el"><a href="#deskgame">Découvrir l'histoire</a></li>
+                <li class="header-nav-el"><a href="#newsletter">Acheter le jeu</a></li>
+            </ul>
+            <a href="{{ path('app_login')}}" id="nav-language-switch">Connexion</a>
+            <div id="nav-cross-closure"></div>
+        </nav>
+        <div id="nav-button-hamburger"></div>
+    </header>
+        <section class="log-page">
+        <div class="log-panel" id="login-panel">
+            <div class="log-title-banner">
+                <h2>Connexion</h2>
+            </div>
+            <form method="post">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+
+                {% if app.user %}
+                    <div class="mb-3">
+                        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                {% endif %}
+
+                <div class="login-box" id="login-box-mail">
+                    <label for="loginEmail">Adresse mail<abbr title="obligatoire">*</abbr></label><input type="email" value="{{ last_username }}" name="email" id="loginEmail" required/>
+                </div>
+                <div class="login-box">
+                    <label for="loginMdp">Mot de passe<abbr title="obligatoire">*</abbr></label><input type="password" name="password" id="inputPassword" class="form-control" required id="loginMdp" required/></div>
+                            <div class="login-last-line">
+                                <div class="login-box">
+                                    <input type="checkbox" id="rememberme" name="rememberme" value="0" >
+                                    <label for="rememberme">Se souvenir de moi</label>
+                                </div>
+                                <a href="{{ path("app_forgot_password_request") }}">Mot de passe oublié&nbsp;?</a>
+                            </div>
+
+                            <div class="login-box" id="login-box-submit">
+                                <input type="submit" id="login-submit-input" value="Connexion" />
+                            </div>
+
+                <input type="hidden" name="_csrf_token"
+                    value="{{ csrf_token('authenticate') }}"
+                >
+
+                    {#
+                        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+                        See https://symfony.com/doc/current/security/remember_me.html
+
+                        <div class="checkbox mb-3">
+                            <label>
+                                <input type="checkbox" name="_remember_me"> Remember me
+                            </label>
+                        </div>
+                    #}
+
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div id="footer-width">
+            <div id="footer-txt">
+                <div class="footer-txt-link">Créé par l'agence <a href="https://mmi19d13.mmi-troyes.fr/DeskGames/">Deskgames</a></div>
+                <!-- <div id="footer-txt-links-divider"></div> -->
+            </div>
+            <div id="footer-sn">
+                <a href="https://twitter.com/desk_games?s=09"><img src="{{ asset('assets/images/icons/twitter.png')}}" alt="icône de Twitter" /></a>
+                <a href="https://www.instagram.com/desk_games/?hl=fr"><img src="{{ asset('assets/images/icons/instagram.png')}}" alt="icône d'Instagram" /></a>
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}

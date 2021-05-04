@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name=”viewport” content=”width=device-width, initial-scale=1”>
+        <title>{% block title %}Treasure{% endblock %}</title>
+
+        <link rel="stylesheet" href="{{ asset('assets/css/screen.css')}}">
+        <link rel="stylesheet" href="{{ asset('assets/css/animate.min.css')}}">
+
+        <script type='text/javascript' src="{{ asset('assets/js/jquery-3.6.0.min')}}"></script>
+        <script type='text/javascript' src="{{ asset('assets/js/bootstrap.js') }}"></script>
+        <script type='text/javascript' src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
+        <script src="{{asset('assets/js/socket.io.js')}}"></script>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block menu %}{% endblock %}
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

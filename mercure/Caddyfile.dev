@@ -1,0 +1,24 @@
+{
+    # Debug mode (disable it in production!)
+    debug
+    # HTTP/3 support
+    experimental_http3
+}
+
+:3000    
+log  
+route {
+    redir / /.well-known/mercure/ui/
+    encode gzip
+    mercure {
+    
+        # Publisher JWT key
+        publisher_jwt aVerySecretKey
+        # Subscriber JWT key
+        subscriber_jwt aVerySecretKey
+        cors_origins *
+        publish_origins *
+    }
+
+    respond "Not Found" 404
+}

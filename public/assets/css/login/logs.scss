@@ -1,0 +1,310 @@
+@import '_vars.scss';
+
+body {
+    padding: 0;
+    margin: 0;
+    .log-page {
+        padding-top: 172px;
+        @media (min-width: $without-hamburger) {
+            padding-top: 0;
+            margin-top: 20vh;
+        }
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        padding-bottom: 100px;
+
+
+        .log-panel {
+            width: 80%;
+            margin: auto;
+            background: $dark-brown;
+            border: $gold 10px solid;
+            border-radius: 30px;
+            color: $gold;
+            font-size: 2em;
+            margin-top: 200px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+
+            .log-title-banner {
+                width: 60vw;
+                margin: auto;
+                position: absolute;
+                align-self: center;
+                height: 200px;
+                top: -100px;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                background: url('../media/img/parchment-banner.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center center;
+
+    
+                h2 {
+                    text-align: center;
+                    margin: 0;
+                    height: 60%;
+                    color: $dark-brown;
+                    display: flex;
+                    align-items: center;
+                    position: absolute;
+                    text-shadow: rgba(0, 0, 0, .5) 5px 5px 5px;
+                    @media (max-width: 904px) {
+                        top: 7.5%;
+                    }
+                    @media (max-width: 770px) {
+                        font-size: 1em;
+                    }
+                    @media (max-width: 680px) {
+                        top: 12.5%;
+                    }
+                    @media (max-width: 430px) {
+                        top: 15%;
+                    }
+                    @media (max-width: 500px) {
+                        font-size: 0.6em;
+                    }
+                }
+            }
+
+            &>form, &>div {
+                margin: 130px auto 40px auto; 
+            }
+            
+            form {
+                abbr {
+                    text-decoration: none;
+                    margin-left: 10px;
+                }
+                input[type=text], input[type=password], input[type=email] {
+                    margin-bottom: 20px;
+                    margin-top: 5px;
+                    border-radius: 5px;
+                    border: none;
+                    background: $gold;
+                    color: $dark-brown;
+                    font-family: $body-font;
+                    font-size: 1em;
+                    padding: 5px 15px;
+                    &:focus {
+                        outline: none;
+                        border: transparentize($red, .2) 2px solid;
+                    }
+                    @media (min-width: 1045px) {
+                        padding: 20px 15px;
+                        
+                    }
+                }
+                input[type=checkbox] {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    -ms-appearance: none;
+                    border-radius: 100%;
+                    height: 15px;
+                    width: 15px;
+                    background: $gold;
+                    margin-right: 10px;
+                    cursor: pointer;
+                    &:focus {
+                        outline: none;
+                        border: transparentize($red, .2) 2px solid;
+                    }
+                    &:checked {
+                        background: $chocolate;
+                        position: relative;
+                        &:before {
+                          font-family: sans-serif;
+                          content: '•';
+                          font-weight: 800;
+                          display: block;
+                          color: white;
+                          font-size: 10px;
+                          text-align: center;
+                        }
+                      }
+                }
+                input[type=submit] {
+                    margin-top: 40px;
+                    border: none;
+                    background: $gold !important;
+                    color: $red;
+                    width: 50%;
+                    margin: auto;
+                    text-transform: uppercase;
+                    font-size: 1.5em;
+                    text-align: center;
+                    font-family: $title-font;
+                    padding: 10px 0;
+                    border-radius: 10px;
+                    transition: all .4s;
+                    cursor: pointer;
+                    &:hover {
+                        background: $red !important;
+                        color: $cream;
+                    }
+                    @media (max-width: 900px) {
+                        font-size: .6em;
+                        width: 70%;
+                    }
+                }
+            }
+        }
+
+        #login-panel {
+            form {
+                display: flex;
+                flex-direction: column;
+                width: 80%;
+
+                .login-box {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                input[type=email] {
+                    margin-bottom: 40px;
+                }
+
+                .login-last-line {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    font-size: 1em;
+                    margin-bottom: 60px;
+                    &>.login-box {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        label {
+                            font-size: 1em;
+                        }
+                    }
+                    &>a {
+                        color: $cream;
+                    }
+                    @media (max-width: 900px) {
+                        flex-direction: column;
+                        &>.login-box {
+                            justify-content: flex-start;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        #register-panel {
+
+            #register-content {
+                
+                width: 95%;
+            }
+
+            #register-avatar-container {
+                width: 15%;
+                border-radius: 100%;
+                align-self: center;
+                margin: auto;
+                &>img {
+                    width: 100%;
+                    border-radius: 100%;
+                }
+                @media (max-width: 1145px) {
+                    width: 20%;
+                }
+            }
+
+            form {
+                margin-top: 20px;
+                display: grid;
+                grid-template-columns: repeat(2, 40%);
+                grid-template-rows: repeat(3, 1fr) 2fr 1fr;
+                column-gap: 20%;
+                row-gap: 20px;
+
+                @media (max-width: 1350px) {
+                    column-gap: 5%;
+                    grid-template-columns: repeat(2, 47.5%);
+                }
+
+                @media (max-width: 1145px) {
+                    display: flex;
+                    flex-direction: column;
+                    
+                }
+
+                .sign-box {
+                    display: flex;
+                    flex-direction: column;
+                    input[type=text], input[type=password], input[type=email] {
+                        @media (min-width: 1045px) {
+                            padding: 5px 15px;
+                        }
+                    }
+                }
+                .sign-box-inline {
+                    display: grid;
+                    grid-template-columns: 30px auto;
+                    column-gap: 10px;
+                    input[type=checkbox] {
+                        height: 30px;
+                        width: 30px;
+                        &:checked {
+                            background: $chocolate;
+                            position: relative;
+                            &:before {
+                              font-family: sans-serif;
+                              content: '•';
+                              font-weight: 800;
+                              display: block;
+                              color: white;
+                              font-size: 24px;
+                              text-align: center;
+                            }
+                          }
+                    }
+                    label {
+                        width: auto;
+                        text-align: justify;
+                        margin-left: 10px;
+                    }
+                }
+                #sign-captcha {
+                    background: $gold;
+                    height: 100%;
+                    width: 100%;
+                    margin-bottom: 20px;
+                    min-height: 200px;
+                }
+
+                #sign-box-submit {
+                    align-self: center;
+                    grid-column: 1 / 3;
+                    width: 70%;
+                    margin: auto;
+                    margin-top: 40px;
+                    
+                    @media (max-width: 1145px) {
+                        grid-column: 1;
+                        font-size: 0.8em !important;
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
+                    @media (max-width: 900px) {
+                        font-size: .6em;
+                        width: 70%;
+                    }
+
+                }
+            }
+        }
+
+
+    }
+}

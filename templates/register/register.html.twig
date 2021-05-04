@@ -1,0 +1,98 @@
+{% extends 'base_public.html.twig' %}
+
+{% block title %}Treasure - Inscription {% endblock %}
+ {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/login/logs.css') }}"/>
+    
+ {% endblock %}
+{% block body %}
+    <header id="top-page">
+        <a id="nav-logo" href="{{ path('app')}}"></a>
+        <nav id="header-nav">
+            <ul>
+                <li class="header-nav-el" href="{{ path('app')}}">Accueil</li>
+                <li class="header-nav-el"><a href="#deskgame">Découvrir l'histoire</a></li>
+                <li class="header-nav-el"><a href="#newsletter">Acheter le jeu</a></li>
+            </ul>
+            <a href="{{ path('app_login')}}" id="nav-language-switch">Connexion</a>
+            <div id="nav-cross-closure"></div>
+        </nav>
+        <div id="nav-button-hamburger"></div>
+    </header>
+    <section class="log-page">
+        <div class="log-panel" id="register-panel">
+            <div class="log-title-banner">
+                <h2>Inscription</h2>
+            </div>
+            <div id="register-content">
+                    {{ form_start(form) }}
+                        <div id="register-avatar-container">
+                            <img src="{{ asset("assets/images/ProfilPicture/defaults/ImageProfil1.png")}}" alt="Avatar par défaut unf ois inscrit.e"/>
+                            {{ form_widget(form.ProfilPicture, {'attr' : {'id': 'nom', 'class' : 'filebutton', 'style' : '', 'type': 'text', 'placeholder': 'Saisir votre nom'}}) }}
+                        </div>
+                    <div class="form">
+                        <div class="sign-box">
+                            {{ form_label(form.firstname) }}
+                            {{ form_widget(form.firstname, {'attr' : {'id': 'nom', 'class' : 'col-12 col-lg', 'type': 'text', 'placeholder': 'Saisir votre nom'}}) }}
+                        </div>
+                        <div class="sign-box">
+                            {{ form_label(form.lastname) }}
+                            {{ form_widget(form.lastname, {'attr' : {'id': 'nom', 'class' : 'col-12 col-lg', 'type': 'text', 'placeholder': 'Saisir votre nom'}}) }}
+                        </div>
+                        <div class="sign-box">
+                            {{ form_label(form.birthday) }}
+                            {{ form_widget(form.birthday, {'attr' : {'id': 'nom', 'class' : 'col-12 col-lg', 'type': 'text', 'placeholder': 'Saisir votre nom'}}) }}
+                        </div>
+                        <div class="sign-box">
+                            {{ form_label(form.username) }}
+                            {{ form_widget(form.username, {'attr' : {'id': 'pseudo', 'class' : 'col-12 col-lg', 'type': 'text', 'placeholder': 'Saisir votre pseudo'}}) }}
+                        </div>
+                        <div class="sign-box">
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email, {'attr' : {'id': 'mail', 'class' : 'col-12 col-lg', 'type': 'email', 'placeholder': 'Saisir votre email'}}) }}
+                        </div>
+                        <div class="sign-box">
+                            {{ form_label(form.password.first) }}
+                            {{ form_widget(form.password.first, {'attr' : {'id': 'password', 'class' : 'col-12 col-lg', 'type': 'password', 'placeholder': 'Saisir votre mot de passe'}}) }}
+                        </div>
+                        <div class="sign-box">
+                            {{ form_label(form.password.second) }}
+                            {{ form_widget(form.password.second, {'attr' : {'id': 'password', 'class' : 'col-12 col-lg', 'type': 'password',}}) }}
+                        </div>
+                        <div id="sign-captcha">
+                        {{ form_row(form.captcha) }}
+                        </div>
+                        <div class="sign-box" style="text-align: center">
+                            {{ form_row(form.termsAccepted, {'attr' : {'id': 'password', 'class' : 'center', 'type': 'password', 'placeholder': 'Saisir votre mot de passe'}}) }}
+                        </div>
+                        <div class="sign-box" id="sign-box-submit">
+                            <button class="rounded-button-red"  type="submit">S'inscrire</button>
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div id="footer-width">
+            <div id="footer-txt">
+                <div class="footer-txt-link">Créé par l'agence <a href="https://mmi19d13.mmi-troyes.fr/DeskGames/">Deskgames</a></div>
+                <!-- <div id="footer-txt-links-divider"></div> -->
+            </div>
+            <div id="footer-sn">
+                <a href="https://twitter.com/desk_games?s=09"><img src="{{ asset('assets/images/icons/twitter.png')}}" alt="icône de Twitter" /></a>
+                <a href="https://www.instagram.com/desk_games/?hl=fr"><img src="{{ asset('assets/images/icons/instagram.png')}}" alt="icône d'Instagram" /></a>
+            </div>
+        </div>
+    </footer>
+
+    </body>
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $('.row .fieldset div').css({'width':'100%','text-align':'center'});
+    </script>
+{% endblock %}

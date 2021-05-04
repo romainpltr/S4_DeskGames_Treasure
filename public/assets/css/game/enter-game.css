@@ -1,0 +1,65 @@
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-column h3 {
+    margin: 1rem;
+}
+
+.flex-column hr {
+    width: 100%;
+    border-color: violet;
+    border-style: dashed;
+    outline-offset: 10;
+}
+.rounded-img-pirate {
+    width: 40%;
+    border-radius: 100%;
+    height: 100%;
+    text-align: center;
+}
+.flex-row {
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0;
+    justify-content: space-around;
+}
+.flex-row a {
+    justify-content: center;
+    text-decoration: none;
+    display: flex;
+}
+.rounded-button {
+    border: none;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    height: 3rem;
+    width: 20rem;
+    font-size: 1.2rem;
+}
+
+.log-title-banner {
+    width: 60vw;
+    margin: auto;
+    position: absolute;
+    align-self: center;
+    height: 200px;
+    top: -100px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: url("../../images/logo/parchment-banner.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }

@@ -1,0 +1,69 @@
+
+
+ {% block stylesheets %}
+     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>
+     <link rel="stylesheet" href="{{ asset('assets/css/login/logs.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/game/enter-game.css') }}"/>
+ {% endblock %}
+{% block body %}
+ <header id="top-page">
+        <a id="nav-logo" href="{{ path('app')}}"></a>
+        <nav id="header-nav">
+            <ul>
+                <li class="header-nav-el" href="{{ path('app')}}">Accueil</li>
+                <li class="header-nav-el"><a href="#deskgame">Découvrir l'histoire</a></li>
+                <li class="header-nav-el"><a href="#newsletter">Acheter le jeu</a></li>
+            </ul>
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <a href="{{ path('profil')}}" id="nav-language-switch">{{app.user.username}}</a>
+            {% else %}
+            <a href="{{ path('app_login')}}" id="nav-language-switch">Connexion</a>
+            {% endif %}
+            <div id="nav-cross-closure"></div>
+        </nav>
+        <div id="nav-button-hamburger"></div>
+
+    </header>
+    <section class="log-page">
+            <div class="log-panel" id="enter-game-panel">
+                <div class="log-title-banner">
+                    <h2>Jouer</h2>
+                </div>
+                <div class="flex-column">
+                    <h3>Lancer une nouvelle partie</h3>
+                    <div class="flex-row">
+                        <a href="{{path('random')}}"> <button class="rounded-button">Jouer contre un adversaire inconnu</button></a>
+                        <a href="{{path('friends')}}"><button class="rounded-button">Inviter un ami</button></a>
+                    </div>
+<!--                    <div class="flex-row">
+                        <a href="#"><button class="rounded-button">Rejoindre une partie ouverte</button></a>
+                        <a href="invitation.html"><button class="rounded-button">Vos invitations</button></a>
+                    </div>-->
+                    <span style="margin: 1.5rem 0; width:100%;">
+                        <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 8.3" style="enable-background:new 0 0 1000 8.3;" xml:space="preserve">
+        <style type="text/css">
+            .st0{fill:none;stroke:#DCC58B;stroke-width:8;stroke-miterlimit:10;stroke-dasharray:30,20;}
+        </style>
+        <line class="st0" x1="-59.5" y1="0.5" x2="1018" y2="0.5"/>
+        </svg></span>
+                    <div class="flex-row">
+                        <a href="{{ path("mygame")}}"><button class="rounded-button">GÉRER VOS PARTIES</button></a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <footer>
+        <div id="footer-width">
+            <div id="footer-txt">
+                <div class="footer-txt-link">Créé par l'agence <a href="https://mmi19d13.mmi-troyes.fr/DeskGames/">Deskgames</a></div>
+                <!-- <div id="footer-txt-links-divider"></div> -->
+            </div>
+            <div id="footer-sn">
+                <a href="https://twitter.com/desk_games?s=09"><img src="{{ asset('assets/images/icons/twitter.png')}}" alt="icône de Twitter" /></a>
+                <a href="https://www.instagram.com/desk_games/?hl=fr"><img src="{{ asset('assets/images/icons/instagram.png')}}" alt="icône d'Instagram" /></a>
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}

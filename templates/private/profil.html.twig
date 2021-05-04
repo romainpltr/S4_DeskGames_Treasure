@@ -1,0 +1,310 @@
+{% extends 'base_connected.html.twig' %}
+ {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/login/logs.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/profil/profil.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('assets/css/profil/AllGame.css') }}"/>
+ {% endblock %}
+{% block title %}Treasure - Profil{% endblock %}
+{% block body %}
+ <header id="top-page">
+        <a id="nav-logo" href="{{ path('app')}}"></a>
+        <nav id="header-nav">
+            <ul>
+                <li class="header-nav-el" href="{{ path('app')}}">Accueil</li>
+                <li class="header-nav-el"><a href="#deskgame">Découvrir l'histoire</a></li>
+                <li class="header-nav-el"><a href="#newsletter">Acheter le jeu</a></li>
+            </ul>
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <a href="{{ path('profil')}}" id="nav-language-switch">{{app.user.username}}</a>
+            {% else %}
+            <a href="{{ path('app_login')}}" id="nav-language-switch">Connexion</a>
+            {% endif %}
+            <div id="nav-cross-closure"></div>
+        </nav>
+        <div id="nav-button-hamburger"></div>
+
+    </header>
+   <section class="profile-page">
+        <div id="profile-bg-wave"></div>
+        <div class="profile-content">
+            <div class="profile-title-banner">
+                <h2>Profil</h2>
+            </div>
+
+            <div id="profile-panel-infos">
+                <div id="profile-panel-avatar-container">
+
+                    <img src="{{asset('assets/images/ProfilPicture/defaults/' ~ app.user.profilPicture)}}" alt="Avatar de votre profil" />
+                </div>
+
+
+                <div id="profile-panel-content">
+                    <div id="profile-content-grid">
+                        <div class="profile-info-piece" id="info-pc-last-name">{{app.user.lastname}}</div>
+                        <div class="profile-info-piece" id="info-pc-first-name">{{app.user.firstname}}</div>
+                        <div class="profile-info-piece" id="info-pc-pseudo">{{app.user.username}}</div>
+                        <div class="profile-info-piece" id="info-pc-age">{{age}} ans</div>
+                        <div class="profile-info-piece" id="info-pc-elo">Score : {{ joueur.score }}</div>
+                    </div>
+                    <div id="btn-access-game-container">
+                        <a id="profile-btn-access-game" class="btn-resume-game" href="{{ path("menu_game")}}">Jouer</a>
+                        <a id="profile-btn-access-game" class="btn-resume-game" href="{{ path("app_logout")}}">Déconnexion</a>
+                    </div>
+                </div>
+                
+                <!-- <a id="profile-btn-access-game" class="btn-resume-game" href="#">Reprendre la partie en cours</a> -->
+                
+            </div>
+                <form method="POST" action="{{ path('ajouter_ami') }}">
+                    <div class="ami">
+                            <input type="text" name="pseudo" class="login-box">
+                            <button type="submit" style="margin: 0 auto" class=""  name="rechercher">Rechercher un ami</button>
+                        {% for message in app.flashes('notice_amis') %}
+                            <p>{{ message }}</p>
+                        {% endfor %}
+                        </div>
+                </form>
+            
+            
+            
+            
+            <div class="profile-panel-stats">
+                <h2>Vos statistiques de parties</h2>
+                <div class="profile-panel-stats-divider"></div>
+                <div class="profile-stats-all-columns">
+                    <div class="profile-stats-column">
+                        <div class="profile-stats-column-nb">{{app.user.parties_played}}</div>
+                        <div class="profile-stats-column-cat">Parties terminées</div>
+                    </div>
+
+                    <div class="profile-stats-column">
+                        <div class="profile-stats-column-nb">{{app.user.parties_win}}</div>
+                        <div class="profile-stats-column-cat">Victoires</div>
+                    </div>
+
+                    <div class="profile-stats-column">
+                        <div class="profile-stats-column-nb">{{app.user.parties_loose}}</div>
+                        <div class="profile-stats-column-cat">Défaites</div>
+                    </div>
+                </div>
+                <div class="profile-stats-victories">
+                    <div class="profile-stats-victories-line">Victoire par points&nbsp;de&nbsp;charme&nbsp;:&nbsp;<span>0</span></div>
+                    <div class="profile-stats-victories-line">Victoire par cartes&nbsp;pirates&nbsp;:&nbsp;<span>0</span></div>
+                </div>
+            </div>
+
+            
+
+            <div class="profile-panel-stats">
+
+                <h2>Toutes vos PARTIES</h2>
+
+                <div class="profile-panel-stats-divider"></div>
+
+                <div class="profile-stats-all-columns">
+                     <div class="flex-column">
+
+                        <h3>Parties en cours : 2</h3>
+
+                        <div class="flex-row">
+
+                            <img class="rounded-img" src="media/img/icon_profile_default.png"> 
+                            <p>7 - 4</p>
+                            <img class="rounded-img" src="media/img/icon_profile_default.png">
+
+                            <img class="rounded-img" src="media/img/icon_profile_default.png"> 
+                            <p>1 - 6</p>
+                            <img class="rounded-img" src="media/img/icon_profile_default.png">
+
+                        </div>
+
+                        <div class="flex-row">
+
+                            <span class="space"></span>
+
+                            <p>VOUS</p>
+
+                            <div class="flex-column">
+
+                                <button class="rounded-button-reprendre">Reprendre</button>
+                                <button class="rounded-button-red-invit">Supprimer</button>
+
+                            </div>
+
+                            <p>Joueur 4</p>
+
+                            <span class="space"></span>
+
+                            <p>VOUS</p>
+
+                            <div class="flex-column">
+
+                                <button class="rounded-button-reprendre">Reprendre</button>
+                                <button class="rounded-button-red-invit">Supprimer</button>
+                                
+                            </div>
+
+                            <p>Joueur 3</p>
+
+                            <span class="space"></span>
+
+                        </div>
+
+                        <h3>Parties terminées : 8</h3>
+
+                        <div class="ligne">
+
+                            <div class="flex-row">
+
+                            <img class="rounded-img" src="media/img/icon_profile_default.png"> 
+                            <p>7 - 4</p>
+                            <img class="rounded-img" src="media/img/icon_profile_default.png">
+
+                            <img class="rounded-img" src="media/img/icon_profile_default.png"> 
+                            <p>1 - 6</p>
+                            <img class="rounded-img" src="media/img/icon_profile_default.png">
+
+                            </div>
+
+                        
+                            <div class="flex-row">
+
+                            <p>VOUS</p>
+
+                            <p class="victoire">Victoire par points de charme</p>
+
+                            <p>Joueur 4</p>
+
+                            <p>VOUS</p>
+
+                            <p class="victoire">Victoire par cartes Pirates</p>
+
+                            <p>Joueur 3</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="ligne">
+
+                            <div class="flex-row">
+
+                            <img class="rounded-img" src="media/img/icon_profile_default.png"> 
+                            <p>7 - 4</p>
+                            <img class="rounded-img" src="media/img/icon_profile_default.png">
+
+                            <img class="rounded-img" src="media/img/icon_profile_default.png"> 
+                            <p>1 - 6</p>
+                            <img class="rounded-img" src="media/img/icon_profile_default.png">
+
+                            </div>
+
+                        
+                            <div class="flex-row">
+
+                            <p>VOUS</p>
+
+                            <p class="victoire">Victoire par points de charme</p>
+
+                            <p>Joueur 4</p>
+
+                            <p>VOUS</p>
+
+                            <p class="victoire">Victoire par cartes Pirates</p>
+
+                            <p>Joueur 3</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="ligne">
+
+                            <div class="flex-row">
+
+                            <img class="rounded-img" src="media/img/icon_profile_default.png"> 
+                            <p>7 - 4</p>
+                            <img class="rounded-img" src="media/img/icon_profile_default.png">
+
+                            <img class="rounded-img" src="media/img/icon_profile_default.png"> 
+                            <p>1 - 6</p>
+                            <img class="rounded-img" src="media/img/icon_profile_default.png">
+
+                            </div>
+
+                        
+                            <div class="flex-row">
+
+                            <p>VOUS</p>
+
+                            <p class="victoire">Victoire par points de charme</p>
+
+                            <p>Joueur 4</p>
+
+                            <p>VOUS</p>
+
+                            <p class="victoire">Victoire par cartes Pirates</p>
+
+                            <p>Joueur 3</p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="ligne">
+
+                            <div class="flex-row">
+
+                            <img class="rounded-img" src="media/img/icon_profile_default.png"> 
+                            <p>7 - 4</p>
+                            <img class="rounded-img" src="media/img/icon_profile_default.png">
+
+                            <img class="rounded-img" src="media/img/icon_profile_default.png"> 
+                            <p>1 - 6</p>
+                            <img class="rounded-img" src="media/img/icon_profile_default.png">
+
+                            </div>
+
+                        
+                            <div class="flex-row">
+
+                            <p>VOUS</p>
+
+                            <p class="victoire">Victoire par points de charme</p>
+
+                            <p>Joueur 4</p>
+
+                            <p>VOUS</p>
+
+                            <p class="victoire">Victoire par cartes Pirates</p>
+
+                            <p>Joueur 3</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+        <!-- Footer -->
+    <footer>
+        <div id="footer-width">
+            <div id="footer-txt">
+                <div class="footer-txt-link">Créé par l'agence <a href="https://mmi19d13.mmi-troyes.fr/DeskGames/">Deskgames</a></div>
+                <!-- <div id="footer-txt-links-divider"></div> -->
+            </div>
+            <div id="footer-sn">
+                <a href="https://twitter.com/desk_games?s=09"><img src="{{ asset('assets/images/icons/twitter.png')}}" alt="icône de Twitter" /></a>
+                <a href="https://www.instagram.com/desk_games/?hl=fr"><img src="{{ asset('assets/images/icons/instagram.png')}}" alt="icône d'Instagram" /></a>
+            </div>
+        </div>
+    </footer>
+    </div>>
+{% endblock %}

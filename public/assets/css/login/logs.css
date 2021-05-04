@@ -1,0 +1,358 @@
+@charset "UTF-8";
+body {
+  padding: 0;
+  margin: 0;
+  background-image: url('../../images/background/wood-bg.jpg');
+  background-size:cover;
+}
+body .log-page {
+  padding-top: 172px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding-bottom: 100px;
+}
+@media (min-width: 905px) {
+  body .log-page {
+    padding-top: 0;
+    margin-top: 20vh;
+  }
+}
+body .log-page .log-panel {
+  width: 80%;
+  
+  box-shadow: #000 1px 1px 10px;
+  margin: auto;
+  background: #260202;
+  border: #DCC58B 10px solid;
+  border-radius: 30px;
+  color: #DCC58B;
+  font-size: 2em;
+  margin-top: 200px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+body .log-page .log-panel .log-title-banner {
+  width: 60vw;
+  margin: auto;
+  position: absolute;
+  align-self: center;
+  height: 200px;
+  top: -100px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: url("../../images/logo/parchment-banner.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+}
+body .log-page .log-panel .log-title-banner h2 {
+  text-align: center;
+  margin: 0;
+  height: 60%;
+  color: #260202;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  text-shadow: rgba(0, 0, 0, 0.5) 5px 5px 5px;
+}
+@media (max-width: 904px) {
+  body .log-page .log-panel .log-title-banner h2 {
+    top: 7.5%;
+  }
+}
+@media (max-width: 770px) {
+  body .log-page .log-panel .log-title-banner h2 {
+    font-size: 1em;
+  }
+}
+@media (max-width: 680px) {
+  body .log-page .log-panel .log-title-banner h2 {
+    top: 12.5%;
+  }
+}
+@media (max-width: 430px) {
+  body .log-page .log-panel .log-title-banner h2 {
+    top: 15%;
+  }
+}
+@media (max-width: 500px) {
+  body .log-page .log-panel .log-title-banner h2 {
+    font-size: 0.6em;
+  }
+}
+body .log-page .log-panel > form, body .log-page .log-panel > div {
+  margin: 130px auto 40px auto;
+}
+body .log-page .log-panel form abbr {
+  text-decoration: none;
+  margin-left: 10px;
+}
+body .log-page .log-panel form input[type=text], body .log-page .log-panel form input[type=password], body .log-page .log-panel form input[type=email] {
+  margin-bottom: 20px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: none;
+  background: #DCC58B;
+  color: #260202;
+  font-family: "Lora", "Times New Roman", serif;
+  font-size: 1em;
+  padding: 5px 15px;
+  box-shadow:rgba(0, 0, 0, 0.5) 1px 1px 10px;
+}
+body .log-page .log-panel form input[type=text]:focus, body .log-page .log-panel form input[type=password]:focus, body .log-page .log-panel form input[type=email]:focus {
+  outline: none;
+  border: rgba(159, 50, 61, 0.8) 2px solid;
+  transition: border 100ms;
+  box-shadow:rgba(0, 0, 0, 0.5) 1px 1px 10px;
+}
+@media (min-width: 1045px) {
+  body .log-page .log-panel form input[type=text], body .log-page .log-panel form input[type=password], body .log-page .log-panel form input[type=email] {
+    padding: 20px 15px;
+  }
+}
+body .log-page .log-panel form input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  border-radius: 100%;
+  height: 15px;
+  width: 15px;
+  background: #DCC58B;
+  margin-right: 10px;
+  cursor: pointer;
+}
+body .log-page .log-panel form input[type=checkbox]:focus {
+  outline: none;
+  border: rgba(159, 50, 61, 0.8) 2px solid;
+}
+body .log-page .log-panel form input[type=checkbox]:checked {
+  background: #7E3D39;
+  position: relative;
+}
+body .log-page .log-panel form input[type=checkbox]:checked:before {
+  font-family: sans-serif;
+  content: "•";
+  font-weight: 800;
+  display: block;
+  color: white;
+  font-size: 10px;
+  text-align: center;
+}
+body .log-page .log-panel form input[type=submit] {
+  margin-top: 40px;
+  border: none;
+  background: #DCC58B !important;
+  color: #9F323D;
+  width: 50%;
+  margin: auto;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  text-align: center;
+  font-family: "Playfair Display", "Times New Roman", serif;
+  padding: 10px 0;
+  border-radius: 10px;
+  transition: all 0.4s;
+  cursor: pointer;
+}
+body .log-page .log-panel .form input[type=submit]:hover {
+  background: #9F323D !important;
+  color: #E7E7C5;
+}
+@media (max-width: 900px) {
+  body .log-page .log-panel .form input[type=submit] {
+    font-size: 0.6em;
+    width: 70%;
+  }
+}
+body .log-page #login-panel .form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+body .log-page #login-panel .form .login-box {
+  display: flex;
+  flex-direction: column;
+}
+body .log-page #login-panel .form input[type=email] {
+  margin-bottom: 40px;
+}
+body .log-page #login-panel .form .login-last-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1em;
+  margin-bottom: 60px;
+}
+body .log-page #login-panel .form .login-last-line > .login-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+body .log-page #login-panel .form .login-last-line > .login-box label {
+  font-size: 1em;
+}
+body .log-page #login-panel .form .login-last-line > a {
+  color: #E7E7C5;
+}
+@media (max-width: 900px) {
+  body .log-page #login-panel .form .login-last-line {
+    flex-direction: column;
+  }
+  body .log-page #login-panel .form .login-last-line > .login-box {
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+}
+body .log-page #register-panel #register-content {
+  width: 95%;
+}
+body .log-page #register-panel #register-avatar-container {
+  width:100%;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  display: grid;
+  
+}
+
+#user_ProfilPicture {
+  font-size: 1em;
+  font-family: 'Lora', serif;
+}
+
+#user_birthday_month, #user_birthday_day, #user_birthday_year {
+  font-size: 1em;
+  font-family: 'Lora', serif;
+  background: #dcc58b;
+  color: #260202;
+}
+
+body .log-page #register-panel #register-avatar-container > img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+@media (max-width: 1145px) {
+  body .log-page #register-panel #register-avatar-container {
+    width: 20%;
+  }
+}
+body .log-page #register-panel .form {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 40%);
+  grid-template-rows: repeat(3, 1fr) 2fr 1fr;
+  column-gap: 20%;
+  row-gap: 20px;
+}
+@media (max-width: 1350px) {
+  body .log-page #register-panel .form {
+    column-gap: 5%;
+    grid-template-columns: repeat(2, 47.5%);
+  }
+}
+@media (max-width: 1145px) {
+  body .log-page #register-panel .form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+body .log-page #register-panel .form .sign-box {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 1045px) {
+  body .log-page #register-panel .form .sign-box input[type=text], body .log-page #register-panel form .sign-box input[type=password], body .log-page #register-panel form .sign-box input[type=email] {
+    padding: 5px 15px;
+  }
+}
+body .log-page #register-panel .form .sign-box-inline {
+  display: grid;
+  grid-template-columns: 30px auto;
+  column-gap: 10px;
+}
+body .log-page #register-panel .form .sign-box-inline input[type=checkbox] {
+  height: 30px;
+  width: 30px;
+}
+body .log-page #register-panel .form .sign-box-inline input[type=checkbox]:checked {
+  background: #7E3D39;
+  position: relative;
+}
+body .log-page #register-panel .form .sign-box-inline input[type=checkbox]:checked:before {
+  font-family: sans-serif;
+  content: "•";
+  font-weight: 800;
+  display: block;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+}
+body .log-page #register-panel .form .sign-box-inline label {
+  width: auto;
+  text-align: justify;
+  margin-left: 10px;
+}
+body .log-page #register-panel .form #sign-captcha {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 20px;
+  min-height: 200px;
+}
+body .log-page #register-panel .form #sign-box-submit {
+  align-self: center;
+  grid-column: 1/3;
+  width: 70%;
+  margin: auto;
+  margin-top: 40px;
+}
+@media (max-width: 1145px) {
+  body .log-page #register-panel .form #sign-box-submit {
+    grid-column: 1;
+    font-size: 0.8em !important;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+@media (max-width: 900px) {
+  body .log-page #register-panel .form #sign-box-submit {
+    font-size: 0.6em;
+    width: 70%;
+  }
+}
+
+/*# sourceMappingURL=logs.css.map */
+
+body .log-page .log-panel .login-box {
+  display: flex;
+  flex-direction: column;
+}
+
+body .log-page .log-panel .login-last-line .login-box {
+  display: flex;
+  flex-direction: row;
+}
+
+body .log-page .log-panel .login-last-line a {
+  color: #dcc58b !important;
+}
+
+body .log-page .log-panel > form, body .log-page .log-panel > div {
+  width: 80%;
+}
+
+body .log-page .log-panel .login-last-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
